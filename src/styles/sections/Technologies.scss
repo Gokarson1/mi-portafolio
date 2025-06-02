@@ -1,0 +1,123 @@
+@use '../../styles/variables' as v;
+@use '../../styles/global' as *;
+
+#technologies {
+  @extend .section;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.2rem;
+    color: v.$accent-color;
+    position: relative;
+    
+    &::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(to right, v.$accent-color, v.$accent-secondary);
+      margin: 0.8rem auto 0;
+    }
+  }
+
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 120px));
+    justify-content: center;
+    gap: 2.1rem;
+    width: 100%;
+    max-width: v.$max-width;
+    margin: 0 auto;
+  }
+
+  .tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    height: 120px; /* Altura fija */
+    width: 120px; /* Ancho fijo */
+    padding: 1rem;
+    border-radius: v.$border-radius;
+    background: rgba(var(--tech-color, v.$accent-color), 0.1);
+    color: var(--tech-color, v.$text-color);
+    transition: all 0.3s ease;
+    text-align: center;
+    border: 1px solid rgba(v.$border-color, 0.2);
+    box-sizing: border-box;
+
+    &:hover {
+      background: rgba(var(--tech-color, v.$accent-color), 0.2);
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(var(--tech-color, v.$accent-color), 0.1);
+    }
+
+    .tech-icon {
+      font-size: 2.5rem;
+    }
+
+    .tech-name {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .tech-grid {
+      grid-template-columns: repeat(auto-fit, minmax(110px, 110px));
+      gap: 1.2rem;
+    }
+    
+    .tech-item {
+      height: 110px;
+      width: 110px;
+      
+      .tech-icon {
+        font-size: 2.2rem;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .tech-grid {
+      grid-template-columns: repeat(auto-fit, minmax(90px, 90px));
+      gap: 1rem;
+    }
+    
+    .tech-item {
+      height: 90px;
+      width: 90px;
+      padding: 0.8rem;
+      
+      .tech-icon {
+        font-size: 1.8rem;
+      }
+      
+      .tech-name {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  @media (max-width: 360px) {
+    .tech-grid {
+      grid-template-columns: repeat(auto-fit, minmax(80px, 80px));
+      gap: 0.8rem;
+    }
+    
+    .tech-item {
+      height: 80px;
+      width: 80px;
+      
+      .tech-icon {
+        font-size: 1.6rem;
+      }
+      
+      .tech-name {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}

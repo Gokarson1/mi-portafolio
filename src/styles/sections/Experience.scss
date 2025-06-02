@@ -1,0 +1,196 @@
+@use '../../styles/variables' as v;
+@use '../../styles/global' as *;
+#experience {
+  @extend .section; // Usa el fondo alterno
+
+
+  h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.2rem;
+    color: v.$accent-color;
+    text-shadow: 0 0 10px rgba(v.$accent-color, 0.3);
+    position: relative;
+    
+    &::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(to right, v.$accent-color, v.$accent-secondary);
+      margin: 0.8rem auto 0;
+    }
+  }
+
+  .timeline {
+    position: relative;
+    max-width: v.$max-width;
+    margin: 0 auto;
+    padding-left: 30px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 10px;
+      height: 100%;
+      width: 2px;
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        v.$accent-color,
+        transparent
+      );
+    }
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -27px;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: v.$accent-color;
+      border: 2px solid v.$accent-secondary;
+      box-shadow: 0 0 0 4px rgba(v.$accent-color, 0.2);
+    }
+  }
+
+  .timeline-content {
+    background: rgba(v.$secondary-color, 0.7);
+    border-radius: v.$border-radius;
+    padding: 1.5rem;
+    border: 1px solid v.$border-color;
+    backdrop-filter: blur(5px);
+    transition: v.$transition;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      box-shadow: 0 8px 25px rgba(v.$accent-color, 0.2);
+      border-color: rgba(v.$accent-color, 0.3);
+    }
+  }
+
+  .timeline-header {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+
+    h3 {
+      color: v.$accent-color;
+      font-size: 1.3rem;
+      margin: 0;
+    }
+  }
+
+  .company-period {
+    display: flex;
+    justify-content: space-between;
+    color: v.$muted-text-color;
+    font-family: v.$heading-font-family;
+    font-size: 0.9rem;
+
+    .company {
+      font-weight: 500;
+      color: v.$text-color;
+    }
+
+    .period {
+      background: rgba(v.$accent-color, 0.1);
+      padding: 0.2rem 0.5rem;
+      border-radius: 12px;
+      color: v.$accent-color;
+    }
+  }
+
+  .timeline-description {
+    padding-left: 1.2rem;
+    margin: 1rem 0;
+    color: v.$text-color;
+    font-family: v.$heading-font-family;
+
+    li {
+      margin-bottom: 0.5rem;
+      position: relative;
+      line-height: 1.6;
+
+      &::before {
+        content: '▹';
+        position: absolute;
+        left: -1.2rem;
+        color: v.$accent-color;
+      }
+    }
+  }
+
+  .timeline-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+
+    .tag {
+      background: rgba(v.$accent-color, 0.1);
+      color: v.$accent-color;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-family: v.$code-font;
+      border: 1px solid rgba(v.$accent-color, 0.3);
+      transition: v.$transition;
+
+      &:hover {
+        background: rgba(v.$accent-color, 0.2);
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .timeline {
+      padding-left: 30px;
+      
+      &::before {
+        left: 10px;
+      }
+    }
+
+    .timeline-item {
+      &::before {
+        left: -29px;
+        width: 15px;
+        height: 15px;
+      }
+    }
+
+    .timeline-content {
+      padding: 1.2rem;
+    }
+
+    .company-period {
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .timeline {
+      padding-left: 20px;
+    }
+
+    .timeline-header h3 {
+      font-size: 1.1rem;
+    }
+
+    .timeline-description li {
+      font-size: 0.9rem;
+    }
+  }
+}

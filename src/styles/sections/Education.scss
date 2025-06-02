@@ -1,0 +1,73 @@
+@use '../../styles/variables' as v;
+@use '../../styles/global' as *;
+
+#education {
+  @extend .section;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.2rem;
+    color: v.$accent-color;
+    position: relative;
+    
+    &::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(to right, v.$accent-color, v.$accent-secondary);
+      margin: 0.8rem auto 0;
+    }
+  }
+}
+.education-item {
+  
+  background: rgba(v.$secondary-color, 0.1);
+  border-radius: v.$border-radius;
+  padding: 1.5rem;
+  border: 1px solid v.$border-color;
+  max-width: 700px;
+  margin: 0 auto;
+  backdrop-filter: blur(5px);
+  
+}
+
+.education-header {
+  margin-bottom: 1rem;
+  position: relative;
+  padding-left: 1.5rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    height: 80%;
+    width: 3px;
+    background: linear-gradient(to bottom, v.$accent-color, v.$accent-secondary);
+  }
+
+  h3 {
+    color: v.$accent-color;
+    margin-bottom: 0.3rem;
+  }
+}
+
+.institution {
+  display: block;
+  color: v.$text-color;
+  font-family: v.$heading-font-family;
+  font-size: 0.95rem;
+}
+
+.period {
+  display: inline-block;
+  background: rgba(v.$accent-color, 0.1);
+  color: v.$accent-color;
+  padding: 0.2rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+

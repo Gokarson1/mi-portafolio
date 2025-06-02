@@ -1,0 +1,40 @@
+// src/styles/variables.scss
+@use "sass:color";
+
+// ========== PALETA DE COLORES FUTURISTA ==========
+$primary-color: #0d0d0d;           // Negro profundo (fondo principal)
+$secondary-color: #1a1a1a;         // Gris muy oscuro (tarjetas/componentes)
+$accent-color: #ffd700;            // Amarillo oro (acento principal)
+$accent-secondary: #00a2ff;        // Cian brillante (acento secundario - opcional)
+$text-color: #f5f5f5;              // Blanco roto (texto principal)
+$muted-text-color: #aaaaaa;        // Gris claro (texto secundario)
+
+// ========== EFECTOS VISUALES ==========
+$border-color: rgba(255, 255, 255, 0.1);
+$box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+$hover-glow: 0 0 15px rgba(255, 215, 0, 0.5);
+$neon-effect: 0 0 8px $accent-color, 0 0 16px rgba(255, 215, 0, 0.4);
+
+// ========== TIPOGRAFÍA FUTURISTA ==========
+$font-family: 'Orbitron', sans-serif;         // Principal (tecnológica)
+$heading-font-family: 'Rajdhani', sans-serif; // Secundaria (limpia)
+$code-font: 'Source Code Pro', monospace;     // Para código (opcional)
+
+// ========== ESPACIADO Y TAMAÑOS ==========
+$spacing-unit: 1rem;
+$max-width: 900px;
+$border-radius: 4px;
+$section-padding: 4rem 2rem;
+
+// ========== TRANSICIONES ==========
+$transition: all 0.3s ease-in-out;
+$fast-transition: all 0.15s ease-out;
+
+// ========== FONDOS UNIFICADOS ==========
+$section-bg: rgba($primary-color, 0.98);
+$section-bg-alt: color.adjust($primary-color, $lightness: 3%);
+$section-overlay: radial-gradient(
+  circle at 30% 50%,
+  rgba($accent-color, 0.03) 0%,
+  transparent 50%
+);

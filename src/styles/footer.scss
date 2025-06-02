@@ -1,0 +1,50 @@
+@use '../styles/variables' as v;
+
+.footer {
+  padding: 1.5rem 0;
+  background: rgba(v.$primary-color, 0.98);
+  border-top: 1px solid rgba(v.$accent-color, 0.1);
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+  
+  a {
+    color: v.$text-color;
+    font-size: 1.2rem;
+    transition: color 0.2s ease;
+    
+    &:hover {
+      color: v.$accent-color;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.copyright {
+  font-size: 0.8rem;
+  color: v.$muted-text-color;
+  font-family: v.$heading-font-family;
+}
+
+// Pequeño ajuste para móviles
+@media (max-width: 480px) {
+  .footer {
+    padding: 1rem 0;
+  }
+  
+  .social-links {
+    gap: 1rem;
+  }
+}

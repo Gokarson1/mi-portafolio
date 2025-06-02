@@ -1,0 +1,143 @@
+@use '../../styles/variables' as v;
+@use '../../styles/global' as *;
+#projects {
+  @extend .section;
+
+
+  h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.2rem;
+    color: v.$accent-color;
+    position: relative;
+    
+    &::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(to right, v.$accent-color, v.$accent-secondary);
+      margin: 0.8rem auto 0;
+    }
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .project-card {
+    background: rgba(v.$secondary-color, 0.5);
+    border-radius: v.$border-radius;
+    padding: 1.5rem;
+    border: 1px solid v.$border-color;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      
+      box-shadow: 0 10px 25px rgba(v.$accent-color, 0.2);
+    }
+  }
+
+  .project-header {
+    margin-bottom: 1rem;
+
+    h3 {
+      color: v.$accent-color;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .project-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: v.$muted-text-color;
+
+    .project-type {
+      color: v.$text-color;
+      font-weight: 500;
+    }
+  }
+
+  .project-description {
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    color: v.$text-color;
+
+    li {
+      margin-bottom: 0.8rem;
+      position: relative;
+      line-height: 1.6;
+      padding-left: 1rem;
+
+      &::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: v.$accent-color;
+      }
+    }
+  }
+
+  .project-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+
+    .tech-badge {
+      background: rgba(v.$accent-color, 0.1);
+      color: v.$accent-color;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      border: 1px solid rgba(v.$accent-color, 0.3);
+    }
+  }
+
+  .project-links {
+    display: flex;
+    gap: 1rem;
+
+    a {
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+
+      &.github-link {
+        background: rgba(#333, 0.2);
+        color: v.$text-color;
+        border: 1px solid rgba(#333, 0.4);
+
+        &:hover {
+          background: rgba(#333, 0.4);
+        }
+      }
+
+      &.demo-link {
+        background: rgba(v.$accent-color, 0.2);
+        color: v.$accent-color;
+        border: 1px solid rgba(v.$accent-color, 0.4);
+
+        &:hover {
+          background: rgba(v.$accent-color, 0.3);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

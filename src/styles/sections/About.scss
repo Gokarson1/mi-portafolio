@@ -1,0 +1,216 @@
+// src/styles/sections/About.scss
+@use '../../styles/variables' as v;
+@use '../../styles/global' as *;
+#about {
+  @extend .section;
+
+  .container {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    padding: 0;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+      
+    }
+  }
+
+  img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid v.$accent-color;
+    box-shadow: v.$box-shadow, 0 0 30px rgba(v.$accent-color, 0.2);
+    transition: v.$transition;
+    
+    &:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px rgba(v.$accent-color, 0.4);
+    }
+
+    @media (max-width: 480px) {
+      width: 200px;
+      height: 200px;
+    }
+  }
+
+  .info {
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      margin-top: 0.5rem;
+      color: v.$accent-color;
+      text-shadow: 0 0 10px rgba(v.$accent-color, 0.3);
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      font-family: v.$heading-font-family;
+      font-weight: 500;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      color: v.$text-color;
+    }
+
+    .location {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      color: v.$muted-text-color;
+
+      &::before {
+        content: '📍';
+      }
+      @media (max-width: 768px) {
+      display: block;
+      text-align: center;
+      
+    }
+    }
+  }
+
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    justify-content: flex-start;
+    .btn {
+      background: rgba(v.$secondary-color, 0.7);
+      color: v.$text-color;
+      padding: 0.8rem 1.5rem;
+      border-radius: v.$border-radius;
+      text-decoration: none;
+      border: 1px solid v.$border-color;
+      font-family: v.$heading-font-family;
+      font-size: 0.9rem;
+      transition: v.$transition;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      
+      &:hover {
+        background: rgba(v.$accent-color, 0.1);
+        border-color: v.$accent-color;
+        box-shadow: v.$hover-glow;
+        transform: translateY(-2px);
+
+        &::before {
+          opacity: 1;
+        }
+      }
+
+      &::before {
+        content: '➜';
+        opacity: 0;
+        transition: v.$transition;
+      }
+       @media (max-width: 768px) {
+        flex: 1 1 100%; // Ocupa todo el ancho disponible
+        min-width: 200px; // Ancho mínimo para no quedar demasiado estrecho
+      }
+    }
+    @media (max-width: 768px) {
+      justify-content: center; // Centra los botones en el contenedor
+      flex-direction: column; // Opcional: si prefieres columna en móvil
+      align-items: center; // Asegura centrado vertical si usas columnas
+    }
+
+  }
+
+  .about-description {
+  max-width: v.$max-width;
+  width: 100%; 
+  padding: 2rem;
+  background: rgba(v.$secondary-color, 0.5);
+  border-radius: v.$border-radius;
+  border: 1px solid v.$border-color;
+  backdrop-filter: blur(5px);
+  position: relative;
+  margin: 0 auto; // Centrado horizontal
+  box-sizing: border-box; // Asegura que el padding no afecte el ancho
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, v.$accent-color, v.$accent-secondary);
+  }
+
+  h2 {
+    font-family: v.$heading-font-family;
+    margin-bottom: 1rem;
+    color: v.$accent-color;
+    text-align: center;
+    font-size: 2rem;
+    text-shadow: 0 0 8px rgba(v.$accent-color, 0.3);
+  }
+
+  p {
+    line-height: 1.8;
+    color: v.$text-color;
+    font-family: v.$heading-font-family;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 90%; // Mejor legibilidad en móvil
+  }
+
+  // Responsive para tablets
+  @media (max-width: 1024px) {
+    
+    
+    
+    h2 {
+      font-size: 1.8rem;
+    }
+  }
+
+  // Responsive para móviles
+  @media (max-width: 768px) {
+    width: 100%;
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      max-width: 100%;
+    }
+
+    &::before {
+      width: 100%;
+      height: 3px;
+      top: 0;
+      left: 0;
+      background: linear-gradient(to right, v.$accent-color, v.$accent-secondary);
+    }
+  }
+
+  // Pequeños ajustes para móviles muy pequeños
+  @media (max-width: 480px) {
+    padding: 1.2rem 0.8rem;
+    
+    h2 {
+      font-size: 1.3rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+
+}
