@@ -25,7 +25,9 @@ const Footer = () => {
         </div>
         <div className="copyright">
           <p>&copy; {new Date().getFullYear()} Fabián Sanhueza</p>
+          <p className="tech-stack">Desarrollado con React + Vite</p>
         </div>
+
       </div>
     </footer>
   )

@@ -38,6 +38,12 @@
   font-family: v.$heading-font-family;
 }
 
+.tech-stack {
+  font-size: 0.7rem;
+  color: v.$muted-text-color;
+  margin-top: 0.3rem;
+  opacity: 0.8;
+}
 // Pequeño ajuste para móviles
 @media (max-width: 480px) {
   .footer {

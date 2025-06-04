@@ -12,7 +12,8 @@ const Experience = () => {
         "Integración continua mediante GitHub y dominio personalizado (kctus.cl) configurado desde NIC Chile.",
         "Desarrollo de interfaces responsive con secciones personalizadas, modales interactivos y formulario funcional con EmailJS."
       ],
-      tags: ["React", "Vite", "Vercel"]
+      tags: ["React", "Vite", "Html", "Css"],
+      link:"https://kctus.cl"
     },
     {
       id: 2,
@@ -24,7 +25,8 @@ const Experience = () => {
         "Automatización del envío de contratos en Odoo mediante SignAPI.",
         "Optimización de chatbots en Chattigo para el área de ventas."
       ],
-      tags: ["Bubble.io", "JavaScript", "Odoo"]
+      tags: ["Bubble.io", "JavaScript", "Odoo", "Python"
+      ]
     }
   ];
 
@@ -55,6 +57,20 @@ const Experience = () => {
                   {exp.tags.map((tag, index) => (
                     <span key={index} className="tag">{tag}</span>
                   ))}
+                </div>
+                <div> 
+                  {exp.link && (
+                  <div className='timeline-link'>
+                    <a 
+                      href={exp.link} 
+                      className='link'
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Ver Proyecto
+                    </a>
+                  </div>
+                )}
                 </div>
               </div>
             </div>

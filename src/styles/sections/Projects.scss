@@ -1,8 +1,8 @@
 @use '../../styles/variables' as v;
 @use '../../styles/global' as *;
+
 #projects {
   @extend .section;
-
 
   h2 {
     text-align: center;
@@ -23,13 +23,16 @@
 
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
+    
   }
 
   .project-card {
+    font-family: v.$heading-font-family;
     background: rgba(v.$secondary-color, 0.5);
     border-radius: v.$border-radius;
     padding: 1.5rem;
@@ -37,27 +40,48 @@
     backdrop-filter: blur(5px);
     transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-
+    display: flex;
+    flex-direction: column;
+    
     &:hover {
-      
       box-shadow: 0 10px 25px rgba(v.$accent-color, 0.2);
     }
   }
 
+  .project-image-container {
+    width: 100%;
+    height: 400px;
+    margin-bottom: 1.5rem;
+    border-radius: v.$border-radius;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(v.$border-color, 0.3);
+  }
+
+  .project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+    
+    
+  }
+
   .project-header {
     margin-bottom: 1rem;
-
+    
     h3 {
       color: v.$accent-color;
-      font-size: 1.3rem;
+      font-size: 1.7rem;
       margin-bottom: 0.5rem;
     }
   }
 
+  
   .project-meta {
     display: flex;
     gap: 1rem;
-    font-size: 0.9rem;
+    font-size:1.2rem;
     color: v.$muted-text-color;
 
     .project-type {
@@ -70,7 +94,8 @@
     padding-left: 1rem;
     margin: 1.5rem 0;
     color: v.$text-color;
-
+    font-family: v.$heading-font-family;
+    font-size: 1.1rem;
     li {
       margin-bottom: 0.8rem;
       position: relative;
@@ -105,6 +130,7 @@
   .project-links {
     display: flex;
     gap: 1rem;
+    margin-top: auto; // Esto empuja los links hacia abajo
 
     a {
       padding: 0.5rem 1rem;
@@ -138,6 +164,10 @@
   @media (max-width: 768px) {
     .projects-grid {
       grid-template-columns: 1fr;
+    }
+    
+    .project-image-container {
+      height: 180px;
     }
   }
 }

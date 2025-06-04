@@ -82,12 +82,14 @@
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
+    
 
     h3 {
       color: v.$accent-color;
-      font-size: 1.3rem;
+      font-size: 1.7rem;
       margin: 0;
     }
+    
   }
 
   .company-period {
@@ -98,7 +100,8 @@
     font-size: 0.9rem;
 
     .company {
-      font-weight: 500;
+      font-size: 1.2rem;
+      font-weight: 600;
       color: v.$text-color;
     }
 
@@ -115,6 +118,7 @@
     margin: 1rem 0;
     color: v.$text-color;
     font-family: v.$heading-font-family;
+    font-size: 1.1rem;
 
     li {
       margin-bottom: 0.5rem;
@@ -152,6 +156,43 @@
       }
     }
   }
+    .timeline-link {
+      display: flex;
+      margin-top: 1.2rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(v.$border-color, 0.3);
+
+      .link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: v.$text-color;
+      background: rgba(v.$secondary-color, 0.3);
+      border: 1px solid rgba(v.$border-color, 0.5);
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background: rgba(v.$accent-color, 0.2);
+        color: v.$accent-color;
+        border-color: rgba(v.$accent-color, 0.4);
+        transform: translateY(-2px);
+      }
+    
+       // Icono de enlace externo
+      &::after {
+      content: '↗';
+      font-size: 0.7rem;
+      margin-left: 0.3rem;
+      }
+    }
+    }
+
+
+  
 
   @media (max-width: 768px) {
     .timeline {
@@ -182,7 +223,7 @@
 
   @media (max-width: 480px) {
     .timeline {
-      padding-left: 20px;
+      padding-left: 30px;
     }
 
     .timeline-header h3 {

@@ -5,7 +5,7 @@ export default function About() {
   return (
     <section id="about">
       <div className="container about-content">
-        <img src="/yo.jpg" alt="Fabián Sanhueza" />
+        <img src="/images/yo.jpg" alt="Fabián Sanhueza" />
 
         <div className="info">
           <h1>Fabián Sanhueza</h1>
